@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Invoice</h1>
+    <table data-th-object="${invoice}">
+        <tr>
+            <td>Invoice id:</td>
+            <td>
+                <a data-th-href="@{'/cart/' + *{invoiceId}}" data-th-text="*{invoiceId}"></a>
+            </td>
+        </tr>
+        <tr>
+            <td>Name:</td>
+            <td data-th-text="${invoice.getShippingAddress().getName()}"></td>
+        </tr>
+        <tr>
+            <td>Address:</td>
+            <td data-th-text="${invoice.getShippingAddress().getAddress()}"></td>
+        </tr>
+        <tr>
+            <td>Total:</td>
+            <td data-th-text="*{totalCost}"></td>
+        </tr>
+    </table>
+</body>
+</html>
